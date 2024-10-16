@@ -15,7 +15,7 @@ namespace AdamAsmaca
         {
             InitializeComponent();
         }
-
+// Şehirler dizisi oluşturma.
         int sayac = 0;
         String[] sehirler = { "ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AĞRI", "AMASYA", "ANKARA", "ANTALYA", "ARTVİN",
             "AYDIN", "BALIKESİR", "BİLECİK", "BİNGÖL", "BİTLİS", "BOLU", "BURDUR", "BURSA", "ÇANAKKALE", "ÇANKIRI", "ÇORUM",
@@ -39,14 +39,14 @@ namespace AdamAsmaca
             label5.Text = (6 - sayac).ToString();
             resimGoster(sayac);
         }
-
+// Kelime seçme fonksiyonu.
         private void kelimeSec()
         {
             Random rnd = new Random();
             secilenKelime = sehirler[rnd.Next(sehirler.Length)];
             
         }
-
+// Kelime gizleme fonksiyonu.
         private void kelimeGizle(String secilenKelime)
         {
             for(int i = 0; i< secilenKelime.Length; i++)
@@ -55,7 +55,7 @@ namespace AdamAsmaca
             }
        
         }
-
+// Kelime açma fonksiyonu.
         private void kelimeAc(String girilenDeger)
         {
             girilenDeger = girilenDeger.ToUpper();
@@ -80,14 +80,14 @@ namespace AdamAsmaca
             resimGoster(sayac);
             kontrol(sayac, gizlenenSehir);
         }
-
+// TextBox un metnini ayarlama.
         private void button2_Click(object sender, EventArgs e)
         {
             if(textBox1.Text != "")
             kelimeAc(textBox1.Text);
             textBox1.Text = "";
         }
-
+// Kontrol gerçekleştirme.
         private void kontrol(int sayac, String gizlenenSehir)
         {
             if (!gizlenenSehir.Contains("_"))
@@ -101,7 +101,7 @@ namespace AdamAsmaca
             }
             
         }
-
+// Oyunu bitirip mesaj verme fonksiyonu.
         private void oyunBitir(Boolean kazandiMi)
         {
             if (kazandiMi == true)
@@ -115,7 +115,7 @@ namespace AdamAsmaca
                 oyunuYenidenBaslat();
             }
         }
-
+// Oyunun yeniden başlaması için gereken fonksiyon.
         private void oyunuYenidenBaslat()
         {
             sayac = 0;
@@ -126,7 +126,7 @@ namespace AdamAsmaca
             label3.Text = gizlenenSehir;
             resimGoster(sayac);
         }
-
+// Resimleri sırasıyla dosyadan çekme.
         private void resimGoster(int sayac)
         {
             pictureBox1.Load("Resim/" + sayac + ".png");
